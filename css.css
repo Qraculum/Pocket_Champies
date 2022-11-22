@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+}
+
+#champie {
+    position: absolute;
+    transition: all 0.2s ease-out;
+}
+
+#background {
+    width: 100vw;
+    height: 60vh;
+    background-color: rgb(79, 79, 87);
+}
+
+#floor {
+    width: 100vw;
+    height: 40vh;
+    background-color: rgb(44, 44, 51);
+}

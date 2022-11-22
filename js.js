@@ -1,14 +1,21 @@
-let body = document.getElementsByTagName("body")[0], idleSprite = 1
-body.innerHTML = 
-`<div> 
-    <img id="champie" src="Sprite_readjusted - Idle2.png"> 
-</div>` + body.innerHTML
+let body = document.querySelector("body")
+body.innerHTML = `<img id="champie" src="Rek'Sai/Sprite_readjusted - Idle2.png">` + body.innerHTML
+
+let champie = document.querySelector("#champie"); champie.addEventListener("click", (event) => {champie.style.transform = "rotateY(360deg)"})
+let idleSprite = 1, pos
 
 
-function IdleAnimation() {
-    document.getElementById("champie").src = `Sprite_readjusted - Idle${idleSprite}.png`
+
+//idle animation
+function IdleAnimation() {                                                                    
+    champie.src = `Rek'Sai/Sprite_readjusted - Idle${idleSprite}.png`
     idleSprite == 2 ? idleSprite=1 : idleSprite=2
-    console.log(idleSprite)
 }
 let idleAnimStart = setInterval(IdleAnimation, 500)
 
+
+
+//rearrange champie's position on scene
+function ChangePosition() {champie.style.top = `${document.querySelector("#background").clientHeight - champie.clientHeight}px`}
+ChangePosition()
+console.log(champie.clientHeight)
