@@ -2,9 +2,19 @@ body {
     margin: 0;
 }
 
+#champie_box {
+    position: absolute;
+    margin-left: 10vw;
+}
+
 #champie {
     position: absolute;
     transition: transform 0.2s ease-out;
+}
+
+#attack {
+    left: 300px;
+    position: absolute;
 }
 
 #background {
@@ -18,3 +28,4 @@ body {
     height: 40vh;
     background-color: rgb(44, 44, 51);
 }
+
