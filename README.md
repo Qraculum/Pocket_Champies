@@ -1,2 +1,2 @@
 # Pocket_Champies
-- wiktor_gej
+- dzisiaj podawany do stołu jest opiekany i doprawiony c*** prosto z rożna 
