@@ -8,7 +8,7 @@ body {
 }
 
 #champie {
-    position: absolute;
+    position: relative;
     transition: transform 0.2s ease-out;
 }
 
@@ -29,3 +29,46 @@ body {
     background-color: rgb(44, 44, 51);
 }
 
+#selection_background {
+    width: 100vw;
+    height: 100vh;
+
+    position: absolute;
+    
+    background: radial-gradient(circle, rgba(18,164,194,1) 0%, rgba(38,63,148,1) 69%, rgba(24,1,10,1) 99%);
+}
+
+#selection_container {
+    width: 900px;
+    height: 400px;
+    margin-right: auto;
+    margin-left: auto;
+
+    position: relative;
+    top: 25vh;
+
+    background-color: rgba(47, 42, 56, 0.25);
+    box-shadow: 0 0 7px rgba(18, 15, 24, 0.25);
+}
+
+#pokemon_selection_case {
+    width: 1500px;
+    height: 400px;
+
+    position: relative;
+    right: 300px;
+}
+
+.beginning_box {
+    width: 250px;
+    height: 250px;
+    margin-top: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+
+    position: relative;
+    float: left;
+
+    background-color: rgb(39, 39, 39);
+    color: white;
+}
