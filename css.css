@@ -49,6 +49,7 @@ body {
 
     background-color: rgba(47, 42, 56, 0.25);
     box-shadow: 0 0 7px rgba(18, 15, 24, 0.25);
+    overflow: hidden;
 }
 
 #pokemon_selection_case {
@@ -71,4 +72,34 @@ body {
 
     background-color: rgb(39, 39, 39);
     color: white;
+    cursor: pointer;
+}
+
+#confirm {
+    width: 150px;
+    height: 75px;
+
+    position: relative;
+    top: -85px;
+    left: 250px;
+
+    cursor: pointer;
+    background-color: aquamarine;
+    border-radius: 10%;
+}
+
+.button {
+    width: 75px;
+    height: 75px;
+    margin-right: 25px;
+
+    position: relative;
+    top: -160px;
+    left: 450px;
+    float: left;
+
+    cursor: pointer;
+    background-color: rgb(48, 50, 51);
+    border-radius: 50%;
+    box-shadow: 6px 6px rgb(7, 18, 20);
 }

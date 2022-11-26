@@ -10,27 +10,38 @@
 </head>
 <body>
 
+    <!--!~~~~~~~~~~~~~~~~~~  MAIN GAME  ~~~~~~~~~~~~~~~~~-->
     <div style="position: absolute;">
         <div id="champie_box"></div>
         <div id="background"></div>
         <div id="floor"></div>
     </div>
 
-    <script src="pokemon.js"></script>
-    <script src="main.js"></script>
-    <script src="champie_modules.js"></script>
 
+    <!--!~~~~~~~~~~~~~~~  SELECTION PANEL  ~~~~~~~~~~~~~~-->
     <div id="selection_background" class="beginning">
         <div id="selection_container" class="beginning">
             <div id="pokemon_selection_case" class="beginning">
-                <div class="beginning_box"></div>
-                <div class="beginning_box"></div>
-                <div id="reksai" class="beginning_box" onclick="Start()"> REK'SAI </div>
-                <div class="beginning_box"></div>
-                <div class="beginning_box"></div>
+                <div id="a" class="beginning_box" onclick="Start()">a</div>
+                <div id="b" class="beginning_box" onclick="Start()">b</div>
+                <div id="reksaiChampie" class="beginning_box" onclick="Start()"> 
+                    REK'SAI
+                    <div id="illumination"></div> 
+                </div>
+                <div id="c" class="beginning_box" onclick="Start()">c</div>
+                <div id="d" class="beginning_box" onclick="Start()">d</div>
             </div>
+            <div id="confirm" onclick="Confirm()"></div>
+            <div class="button" onclick="ToggleLeft()"> <img height="75" width="75" src="Interface\Arrow_Left.png">  </div>
+            <div class="button" onclick="ToggleRight()"> <img height="75" width="75" src="Interface\Arrow_Right.png"> </div>
         </div>
     </div>
+
+
+    <!--!~~~~~~~~~~~~~~~~~~~~ SCRIPTS ~~~~~~~~~~~~~~~~~~~-->
+    <script src="champie.js"></script>
+    <script src="main.js"></script>
+    <script src="champieSkills.js"></script>
 
 </body>
 </html>
