@@ -1,3 +1,13 @@
+@font-face {
+    font-family: PilotCommand;
+    src: url("Font/PilotCommandSpaced.otf");
+}
+
+@font-face {
+    font-family: RapierZero;
+    src: url("Font/RapierZero-325M.ttf");
+}
+
 body {
     margin: 0;
 }
@@ -60,7 +70,7 @@ body {
     right: 300px;
 }
 
-.beginning_box {
+.champie_box {
     width: 250px;
     height: 250px;
     margin-top: 50px;
@@ -70,9 +80,29 @@ body {
     position: relative;
     float: left;
 
-    background-color: rgb(39, 39, 39);
+    background-color: rgba(39, 39, 39, 0.6);
     color: white;
-    cursor: pointer;
+    text-align: center;
+}
+
+.champie_box > img {
+    position: relative;
+    top: -20px;
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.champie_box > h1 {
+    margin: 0;
+
+    position: relative;
+    top: -25px;
+
+    font-family: RapierZero;
+    font-weight: normal;
+    letter-spacing: 2px;
 }
 
 #confirm {
@@ -84,8 +114,9 @@ body {
     left: 250px;
 
     cursor: pointer;
-    background-color: aquamarine;
+    background-color: rgb(48, 50, 51);
     border-radius: 10%;
+    box-shadow: 3px 6px rgb(7, 18, 20);
 }
 
 .button {
@@ -101,5 +132,5 @@ body {
     cursor: pointer;
     background-color: rgb(48, 50, 51);
     border-radius: 50%;
-    box-shadow: 6px 6px rgb(7, 18, 20);
+    box-shadow: 3px 6px rgb(7, 18, 20);
 }
