@@ -10,6 +10,16 @@ function ChangePosition() {
 
 //! --------------------------------------ATTACK
 reksaiChampie.Attack = function () {  
+    reksaiAttack.play()  // play the rek'sai's attack audio
+    pause = true
+
+    // rek'sai animations during attack
+    champie.src = "Champies/Rek'Sai/Sprite_readjusted - Prepare1.png"
+    setTimeout(event => {
+        champie.src = "Champies/Rek'Sai/Sprite_readjusted - Prepare2.png"
+        setTimeout(event => {champie.src = "Champies/Rek'Sai/Sprite_readjusted - Prepare3.png"}, 250)
+    }, 250)
+
     x = 2
     function AttackP1() {                                   //? PHASE 1
         setTimeout(event = () => {  // move with a little delay (time)
@@ -17,7 +27,7 @@ reksaiChampie.Attack = function () {
     
             x++  // lower = slower | higher = faster
             if(x%10 == 0) time += 2  // slow down the backwards charge
-            if(x <= 90) AttackP1()  // loop the same phase to iterate the movement
+            if(x <= 80) AttackP1()  // loop the same phase to iterate the movement
             else {x=3; time=1; x_old=x; AttackP2()}  // if x>90 then start new phase and adds this.x to the new phase 
         }, time)
     }
@@ -30,7 +40,7 @@ reksaiChampie.Attack = function () {
     
             x += 3.5  // lower = slower | higher = faster
             if(x <= 516) AttackP2()  // loop the same phase to iterate the movement
-            else setTimeout(event = () => {champie.style.removeProperty("left"); champie.style.removeProperty("bottom")}, 500)  //after x time resets the champie's position
+            else setTimeout(event = () => {champie.style.removeProperty("left"); champie.style.removeProperty("bottom"); pause=false}, 500)  //after x time resets the champie's position
         }, 1)
     }
     AttackP1()  //? first function call

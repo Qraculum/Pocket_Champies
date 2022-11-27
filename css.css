@@ -39,6 +39,17 @@ body {
     background-color: rgb(44, 44, 51);
 }
 
+#big_black {
+    width: 100vw;
+    height: 100vh;
+
+    position: absolute;
+
+    background-color: rgb(19, 19, 19);
+    opacity: 0%;
+    transition: opacity 2.5s ease-in-out;
+}
+
 #selection_background {
     width: 100vw;
     height: 100vh;
@@ -80,18 +91,21 @@ body {
     position: relative;
     float: left;
 
-    background-color: rgba(39, 39, 39, 0.6);
+    background-color: rgba(39, 39, 39, 0.4);
+    background: linear-gradient(0deg, rgba(39,3,10,0) 0%, rgba(29, 15, 36, 0.75) 70%);
     color: white;
     text-align: center;
 }
 
 .champie_box > img {
     position: relative;
-    top: -20px;
+    top: -22.5px;
     display: block;
 
     margin-left: auto;
     margin-right: auto;
+
+    transition: all 0.5s ease-out;
 }
 
 .champie_box > h1 {
@@ -103,6 +117,17 @@ body {
     font-family: RapierZero;
     font-weight: normal;
     letter-spacing: 2px;
+}
+
+.line {
+    width: 275px;
+    height: 6px;
+
+    position: relative;
+    top: 3px;
+    left: -12.5px;
+
+    background-color: rgb(11, 11, 15);
 }
 
 #confirm {
