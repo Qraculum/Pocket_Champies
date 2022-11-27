@@ -17,7 +17,10 @@ reksaiChampie.Attack = function () {
     champie.src = "Champies/Rek'Sai/Sprite_readjusted - Prepare1.png"
     setTimeout(event => {
         champie.src = "Champies/Rek'Sai/Sprite_readjusted - Prepare2.png"
-        setTimeout(event => {champie.src = "Champies/Rek'Sai/Sprite_readjusted - Prepare3.png"}, 250)
+        setTimeout(event => {
+            champie.src = "Champies/Rek'Sai/Sprite_readjusted - Prepare3.png"
+            setTimeout(event => {champie.src = "Champies/Rek'Sai/Sprite_readjusted - Attack.png"}, 250)
+        }, 250)
     }, 250)
 
     x = 2
