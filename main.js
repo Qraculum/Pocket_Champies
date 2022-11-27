@@ -17,8 +17,9 @@ console.log(reksaiChampie)
 function Confirm() {
         // get id from centerized champie_box
         selectedChampie = document.getElementsByClassName("champie_box")[2].id
-        if (selectedChampie == "reksaiChampie") selectedChampie = reksaiChampie; reksaiSelect.play()  // declaring selectedChampie as x pokemon' object
+        if (selectedChampie == "reksaiChampie") selectedChampie = reksaiChampie; /*reksaiSelect.play()*/  // declaring selectedChampie as x pokemon' object
 
+        /*
         document.querySelector("#big_black").style.zIndex = "1"  // move big_black forward
         document.querySelector("#big_black").style.opacity = "100%"  // change its opacity within transition
         setTimeout(event => {
@@ -26,14 +27,13 @@ function Confirm() {
             document.querySelector("#big_black").style.opacity = "0%"  // change its opacity within transition
             setTimeout(event => {document.querySelector("#big_black").parentNode.removeChild(document.querySelector("#big_black"))}, 2500)  // remove the big_black wall
         }, 2500)
-        /*
+        */
         document.querySelector("#big_black").parentNode.removeChild(document.querySelector("#big_black"))
         Start() 
-        */
 }
 
 //? swipe all champies to the left
-function ToggleLeft() {
+function ToggleRight() {
     if (wait) {
         // remove transform from the image inside of champie_box and add it to next in the row
         document.getElementsByClassName("champie_img")[2].style.removeProperty("transform")
@@ -59,7 +59,7 @@ function ToggleLeft() {
 }
 
 //? swipe all champies to the right
-function ToggleRight() {
+function ToggleLeft() {
     if (wait) {
         // remove transform from the image inside of champie_box and add it to previous in the row
         document.getElementsByClassName("champie_img")[2].style.removeProperty("transform")

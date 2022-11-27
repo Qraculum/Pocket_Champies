@@ -19,7 +19,9 @@ reksaiChampie.Attack = function () {
         champie.src = "Champies/Rek'Sai/Sprite_readjusted - Prepare2.png"
         setTimeout(event => {
             champie.src = "Champies/Rek'Sai/Sprite_readjusted - Prepare3.png"
-            setTimeout(event => {champie.src = "Champies/Rek'Sai/Sprite_readjusted - Attack.png"}, 250)
+            setTimeout(event => {
+                champie.src = "Champies/Rek'Sai/Sprite_readjusted - Attack.png"
+            }, 250)
         }, 250)
     }, 250)
 
@@ -34,6 +36,7 @@ reksaiChampie.Attack = function () {
             else {x=3; time=1; x_old=x; AttackP2()}  // if x>90 then start new phase and adds this.x to the new phase 
         }, time)
     }
+
     function AttackP2() {                                   //? PHASE 2
         setTimeout(event = () => {  // move with a little delay (time)
             y = Math.sin(x/150)*50  // every iteration create new y value based on function    
