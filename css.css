@@ -144,6 +144,15 @@ body {
     box-shadow: 3px 6px rgb(7, 18, 20);
 }
 
+#confirm:active {
+    box-shadow: none;
+    transform: translate(2px, 7px);
+}
+
+#confirm:hover {
+    background-color: rgb(65, 66, 66);
+}
+
 .button {
     width: 75px;
     height: 75px;
@@ -158,4 +167,13 @@ body {
     background-color: rgb(48, 50, 51);
     border-radius: 50%;
     box-shadow: 3px 6px rgb(7, 18, 20);
+}
+
+.button:active {
+    box-shadow: none;
+    transform: translate(2px, 7px);
+}
+
+.button:hover {
+    background-color: rgb(65, 66, 66);
 }

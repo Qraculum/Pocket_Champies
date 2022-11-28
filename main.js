@@ -25,10 +25,11 @@ function Confirm() {
         setTimeout(event => {
             Start()  // call Start()
             document.querySelector("#big_black").style.opacity = "0%"  // change its opacity within transition
-            setTimeout(event => {document.querySelector("#big_black").parentNode.removeChild(document.querySelector("#big_black"))}, 2500)  // remove the big_black wall
+            setTimeout(event => {document.querySelector("#big_black").parentNode.removeChild(document.querySelector("#big_black")); music.play()}, 2500)  // remove the big_black wall
         }, 2500)
         */
         document.querySelector("#big_black").parentNode.removeChild(document.querySelector("#big_black"))
+        //music.play()
         Start() 
 }
 
@@ -87,6 +88,8 @@ function ToggleLeft() {
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~GAME~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //? starts the game
 function Start() {
+    // call RhythmStart() function to enable ticks
+    RhythmStart()
     // remove whole selection menu
     document.querySelector("#selection_background").parentNode.removeChild(document.querySelector("#selection_background")) 
 
@@ -98,15 +101,8 @@ function Start() {
     
     // rotate "champie" 360deg, after 0.2s modify transition duration to 0s (to disallow next animation) and remove transform, return back the 0.2s to transition duration
     champie.addEventListener("click", event => {
-        console.log("dsada")
         champie.style.transform = "rotateY(360deg)"
         setTimeout(event = () => {champie.style.transitionDuration = "0s"; champie.style.removeProperty("transform")}, 200)
         champie.style.transitionDuration = "0.2s"
     })
 }
-
-//? test attack
-document.addEventListener("keydown", event => {
-    key = event.keyCode
-    if (key == `69`) selectedChampie.Attack()
-})
