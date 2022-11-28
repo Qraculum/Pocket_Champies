@@ -1,6 +1,6 @@
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DECLARATIONS
 let body = document.querySelector("body")
-let idleSprite = 1, pos, key, x, time=1, selectedChampie, wait = true, pause = false
+let pos, key, x, time=1, selectedChampie, wait = true, pause = false
 // add transition to every .champie_box
 document.querySelectorAll(".champie_box").forEach(champie_box => {
     champie_box.style.transition = "all 0.4s ease-out"
@@ -50,6 +50,7 @@ function ToggleRight() {
                 champie_box.style.removeProperty("transition")
                 champie_box.style.removeProperty("transform")
             })
+
             // after 0.4s add transition to every box
             setTimeout(event => {document.querySelectorAll(".champie_box").forEach(champie_box => { champie_box.style.transition = "all 0.4s ease-out" })}, 400)
         }, 400)
@@ -76,6 +77,7 @@ function ToggleLeft() {
                 champie_box.style.removeProperty("transition")
                 champie_box.style.removeProperty("transform")
             })
+
             // after 0.4s add transition to every box
             setTimeout(event => {document.querySelectorAll(".champie_box").forEach(champie_box => { champie_box.style.transition = "all 0.4s ease-out" })}, 400)
         }, 400)
@@ -97,7 +99,6 @@ function Start() {
     document.getElementById("champie_box").innerHTML = `<img id="champie" height="${selectedChampie.height}" src="Champies/${selectedChampie.name}/Sprite_readjusted - Idle2.png">` 
     let champie = document.getElementById("champie")  // declaring champie's variable
     ChangePosition()  // rearrange champie's position based on his height
-    let idleAnimStart = setInterval(event => {idleSprite=selectedChampie.IdleAnimation(idleSprite)}, 500)  // animate champie's idle animation
     
     // rotate "champie" 360deg, after 0.2s modify transition duration to 0s (to disallow next animation) and remove transform, return back the 0.2s to transition duration
     champie.addEventListener("click", event => {

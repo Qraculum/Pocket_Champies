@@ -1,5 +1,5 @@
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~RHYTHM~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let tick = 0, i = 0, patternTemp = [], real=true
+let tick = 0, i = 0, patternTemp = [], real=true, idleSprite = 1
     patternAttack = ["Q", "Q", "W", "Q"],
     patternBlock = ["E", "E", "Q", "W"]
 
@@ -16,7 +16,11 @@ function RhythmStart() {
     let rhythm = setInterval(event => {
         tick += 0.1
         tick = parseFloat(tick.toFixed(1))
-        if(tick >= 1) tick = 0
+        if(tick >= 1) {
+            tick = 0
+            idleSprite = selectedChampie.IdleAnimation(idleSprite)  // animate champie's idle animation (synchro with the tickrate)
+        }
+        console.log(tick)
     }, 50)
 
     // add to the whole window a listener listening to keys pressed on the keyboard
