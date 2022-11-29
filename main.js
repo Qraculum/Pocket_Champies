@@ -11,6 +11,14 @@ document.getElementsByClassName("champie_img")[2].style.transform = "scale(1.15)
 const reksaiChampie = new Champies("Rek'Sai", 15, 4, 2, 6, 256)
 console.log(reksaiChampie)
 
+//? add champie's values to the panel on the left
+document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
+                                              health: ${reksaiChampie.health}<br>
+                                              attack: ${reksaiChampie.attack}<br>
+                                              defence: ${reksaiChampie.defence}<br>
+                                              agility: ${reksaiChampie.agility}`
+
+
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~SELECTION~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //? confirm, select the middle available champie, play its select audio, manipulate the black curtains and call the Start() function
 function Confirm() {
@@ -51,7 +59,26 @@ function ToggleRight() {
             })
 
             // after 0.4s add transition to every box
-            setTimeout(event => {document.querySelectorAll(".champie_box").forEach(champie_box => { champie_box.style.transition = "all 0.4s ease-out" })}, 400)
+            setTimeout(event => {
+                document.querySelectorAll(".champie_box").forEach(champie_box => {
+                    champie_box.style.transition = "all 0.4s ease-out" 
+                })
+
+                if (document.getElementsByClassName("champie_box")[2].id == "reksaiChampie"){
+                    document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
+                                                                  health: ${reksaiChampie.health}<br>
+                                                                  attack: ${reksaiChampie.attack}<br>
+                                                                  defence: ${reksaiChampie.defence}<br>
+                                                                  agility: ${reksaiChampie.agility}`
+                }
+                else {
+                    document.getElementById("stats").innerHTML = `name: ROCK<br>
+                                                                  health: 1<br>
+                                                                  attack: 1<br>
+                                                                  defence: 1<br>
+                                                                  agility: 1<br>`
+                }
+            }, 400)
         }, 400)
 
         wait = false
@@ -78,7 +105,26 @@ function ToggleLeft() {
             })
 
             // after 0.4s add transition to every box
-            setTimeout(event => {document.querySelectorAll(".champie_box").forEach(champie_box => { champie_box.style.transition = "all 0.4s ease-out" })}, 400)
+            setTimeout(event => {
+                document.querySelectorAll(".champie_box").forEach(champie_box => {
+                    champie_box.style.transition = "all 0.4s ease-out" 
+                })
+
+                if (document.getElementsByClassName("champie_box")[2].id == "reksaiChampie"){
+                    document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
+                                                                  health: ${reksaiChampie.health}<br>
+                                                                  attack: ${reksaiChampie.attack}<br>
+                                                                  defence: ${reksaiChampie.defence}<br>
+                                                                  agility: ${reksaiChampie.agility}`
+                }
+                else {
+                    document.getElementById("stats").innerHTML = `name: ROCK<br>
+                                                                  health: 1<br>
+                                                                  attack: 1<br>
+                                                                  defence: 1<br>
+                                                                  agility: 1<br>`
+                }
+            }, 400)
         }, 400)
 
         wait = false
