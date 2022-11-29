@@ -1,6 +1,6 @@
-//TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DECLARATIONS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DECLARATIONS
 let body = document.querySelector("body")
-let idleSprite = 1, pos, key, x, time=1, selectedChampie, wait = true, pause = false
+let pos, key, x, time=1, selectedChampie, wait = true, pause = false
 // add transition to every .champie_box
 document.querySelectorAll(".champie_box").forEach(champie_box => {
     champie_box.style.transition = "all 0.4s ease-out"
@@ -10,6 +10,13 @@ document.getElementsByClassName("champie_img")[2].style.transform = "scale(1.15)
 //! create new pokemon
 const reksaiChampie = new Champies("Rek'Sai", 15, 4, 2, 6, 256)
 console.log(reksaiChampie)
+
+//? add champie's values to the panel on the left
+document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
+                                              health: ${reksaiChampie.health}<br>
+                                              attack: ${reksaiChampie.attack}<br>
+                                              defence: ${reksaiChampie.defence}<br>
+                                              agility: ${reksaiChampie.agility}`
 
 
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~SELECTION~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -25,10 +32,11 @@ function Confirm() {
         setTimeout(event => {
             Start()  // call Start()
             document.querySelector("#big_black").style.opacity = "0%"  // change its opacity within transition
-            setTimeout(event => {document.querySelector("#big_black").parentNode.removeChild(document.querySelector("#big_black"))}, 2500)  // remove the big_black wall
+            setTimeout(event => {document.querySelector("#big_black").parentNode.removeChild(document.querySelector("#big_black")); music.play()}, 2500)  // remove the big_black wall
         }, 2500)
         */
         document.querySelector("#big_black").parentNode.removeChild(document.querySelector("#big_black"))
+        //music.play()
         Start() 
 }
 
@@ -49,8 +57,28 @@ function ToggleRight() {
                 champie_box.style.removeProperty("transition")
                 champie_box.style.removeProperty("transform")
             })
+
             // after 0.4s add transition to every box
-            setTimeout(event => {document.querySelectorAll(".champie_box").forEach(champie_box => { champie_box.style.transition = "all 0.4s ease-out" })}, 400)
+            setTimeout(event => {
+                document.querySelectorAll(".champie_box").forEach(champie_box => {
+                    champie_box.style.transition = "all 0.4s ease-out" 
+                })
+
+                if (document.getElementsByClassName("champie_box")[2].id == "reksaiChampie"){
+                    document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
+                                                                  health: ${reksaiChampie.health}<br>
+                                                                  attack: ${reksaiChampie.attack}<br>
+                                                                  defence: ${reksaiChampie.defence}<br>
+                                                                  agility: ${reksaiChampie.agility}`
+                }
+                else {
+                    document.getElementById("stats").innerHTML = `name: ROCK<br>
+                                                                  health: 1<br>
+                                                                  attack: 1<br>
+                                                                  defence: 1<br>
+                                                                  agility: 1<br>`
+                }
+            }, 400)
         }, 400)
 
         wait = false
@@ -75,8 +103,28 @@ function ToggleLeft() {
                 champie_box.style.removeProperty("transition")
                 champie_box.style.removeProperty("transform")
             })
+
             // after 0.4s add transition to every box
-            setTimeout(event => {document.querySelectorAll(".champie_box").forEach(champie_box => { champie_box.style.transition = "all 0.4s ease-out" })}, 400)
+            setTimeout(event => {
+                document.querySelectorAll(".champie_box").forEach(champie_box => {
+                    champie_box.style.transition = "all 0.4s ease-out" 
+                })
+
+                if (document.getElementsByClassName("champie_box")[2].id == "reksaiChampie"){
+                    document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
+                                                                  health: ${reksaiChampie.health}<br>
+                                                                  attack: ${reksaiChampie.attack}<br>
+                                                                  defence: ${reksaiChampie.defence}<br>
+                                                                  agility: ${reksaiChampie.agility}`
+                }
+                else {
+                    document.getElementById("stats").innerHTML = `name: ROCK<br>
+                                                                  health: 1<br>
+                                                                  attack: 1<br>
+                                                                  defence: 1<br>
+                                                                  agility: 1<br>`
+                }
+            }, 400)
         }, 400)
 
         wait = false
@@ -87,6 +135,8 @@ function ToggleLeft() {
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~GAME~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //? starts the game
 function Start() {
+    // call RhythmStart() function to enable ticks
+    RhythmStart()
     // remove whole selection menu
     document.querySelector("#selection_background").parentNode.removeChild(document.querySelector("#selection_background")) 
 
@@ -94,19 +144,11 @@ function Start() {
     document.getElementById("champie_box").innerHTML = `<img id="champie" height="${selectedChampie.height}" src="Champies/${selectedChampie.name}/Sprite_readjusted - Idle2.png">` 
     let champie = document.getElementById("champie")  // declaring champie's variable
     ChangePosition()  // rearrange champie's position based on his height
-    let idleAnimStart = setInterval(event => {idleSprite=selectedChampie.IdleAnimation(idleSprite)}, 500)  // animate champie's idle animation
     
     // rotate "champie" 360deg, after 0.2s modify transition duration to 0s (to disallow next animation) and remove transform, return back the 0.2s to transition duration
     champie.addEventListener("click", event => {
-        console.log("dsada")
         champie.style.transform = "rotateY(360deg)"
         setTimeout(event = () => {champie.style.transitionDuration = "0s"; champie.style.removeProperty("transform")}, 200)
         champie.style.transitionDuration = "0.2s"
     })
 }
-
-//? test attack
-document.addEventListener("keydown", event => {
-    key = event.keyCode
-    if (key == `69`) selectedChampie.Attack()
-})

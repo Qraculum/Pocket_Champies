@@ -21,6 +21,10 @@ reksaiChampie.Attack = function () {
             champie.src = "Champies/Rek'Sai/Sprite_readjusted - Prepare3.png"
             setTimeout(event => {
                 champie.src = "Champies/Rek'Sai/Sprite_readjusted - Attack.png"
+                setTimeout(event => {
+                    champie.src = "Champies/Rek'Sai/Sprite_readjusted - Prepare1.png"
+                    setTimeout(event => {champie.src = "Champies/Rek'Sai/Sprite_readjusted - LieDown.png"}, 50)
+                }, 700)
             }, 250)
         }, 250)
     }, 250)
@@ -45,8 +49,13 @@ reksaiChampie.Attack = function () {
             champie.style.bottom = `${y}px`
     
             x += 3.5  // lower = slower | higher = faster
-            if(x <= 516) AttackP2()  // loop the same phase to iterate the movement
-            else setTimeout(event = () => {champie.style.removeProperty("left"); champie.style.removeProperty("bottom"); pause=false}, 500)  //after x time resets the champie's position
+            if(x <= 470) AttackP2()  // loop the same phase to iterate the movement
+            else setTimeout(event = () => {  // after x time resets the champie's position
+                champie.style.removeProperty("left")
+                champie.style.removeProperty("bottom")
+                champie.src = `Champies/${selectedChampie.name}/Sprite_readjusted - Idle${idleSprite}.png`
+                pause=false
+            }, 400)  
         }, 1)
     }
     AttackP1()  //? first function call

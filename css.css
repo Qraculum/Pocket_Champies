@@ -59,6 +59,28 @@ body {
     background: radial-gradient(circle, rgba(18,164,194,1) 0%, rgba(38,63,148,1) 69%, rgba(24,1,10,1) 99%);
 }
 
+#stats {
+    width: 300px;
+    height: 290px;
+    top: 30.5vh;
+    left: 10vh;
+    margin-right: auto;
+    margin-left: auto;
+
+    z-index: 1;
+    position: absolute;
+    float: left;
+
+    background-color: rgb(71, 136, 194, 0.5);
+    border: 2px rgb(19, 96, 185) solid; 
+    font-size: 28px;
+    color: white;
+    font-family: RapierZero;
+    letter-spacing: 1px;
+    line-height: 2;
+    padding-left: 5px;
+}
+
 #selection_container {
     width: 900px;
     height: 400px;
@@ -144,6 +166,15 @@ body {
     box-shadow: 3px 6px rgb(7, 18, 20);
 }
 
+#confirm:active {
+    box-shadow: none;
+    transform: translate(2px, 7px);
+}
+
+#confirm:hover {
+    background-color: rgb(65, 66, 66);
+}
+
 .button {
     width: 75px;
     height: 75px;
@@ -158,4 +189,13 @@ body {
     background-color: rgb(48, 50, 51);
     border-radius: 50%;
     box-shadow: 3px 6px rgb(7, 18, 20);
+}
+
+.button:active {
+    box-shadow: none;
+    transform: translate(2px, 7px);
+}
+
+.button:hover {
+    background-color: rgb(65, 66, 66);
 }
