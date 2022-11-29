@@ -60,8 +60,17 @@ body {
 }
 
 #stats {
+    width: 300px;
+    height: 290px;
+    top: 30.5vh;
+    left: 10vh;
+    margin-right: auto;
+    margin-left: auto;
+
+    z-index: 1;
     position: absolute;
     float: left;
+
     background-color: rgb(71, 136, 194, 0.5);
     border: 2px rgb(19, 96, 185) solid; 
     font-size: 28px;
@@ -69,15 +78,7 @@ body {
     font-family: RapierZero;
     letter-spacing: 1px;
     line-height: 2;
-
-    z-index: 1;
-
-    margin-right: auto;
-    margin-left: auto;
-    width: 300px;
-    height: 290px;
-    top: 30.5vh;
-    left: 10vh;
+    padding-left: 5px;
 }
 
 #selection_container {
