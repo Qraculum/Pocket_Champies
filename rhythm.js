@@ -1,7 +1,7 @@
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~RHYTHM~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let tick = 0, i = 0, patternTemp = [], idleSprite = 1, countPopup = 0, popupActive = true, 
     popupClass = document.getElementsByClassName("popup"),
-    patternAttack = ["Q", "Q", "W", "Q"],  // patterns
+    patternAttack = ["E", "Q", "W", "Q"],  // patterns
     patternBlock = ["E", "E", "Q", "W"]
 
 //? vanish all popups if no input
@@ -119,7 +119,7 @@ function RhythmStart() {
             // check if the key clicked is Q -> W -> E -> R, if it is clicked, call CheckTick and reset the vanishTimeout timer
             if (key == `81`) {patternTemp[i] = "Q"; i++; CheckTick("Q"); reksaiQ.currentTime = 0; reksaiQ.play(); clearTimeout(vanishTimeout); vanishTimeout = setTimeout(event => {VanishPopup()}, 2000)} 
             else if (key == `87`) {patternTemp[i] = "W"; i++; CheckTick("W"); reksaiW.currentTime = 0; reksaiW.play(); clearTimeout(vanishTimeout); vanishTimeout = setTimeout(event => {VanishPopup()}, 2000)}
-            else if (key == `69`) {patternTemp[i] = "E"; i++; CheckTick("E"); clearTimeout(vanishTimeout); vanishTimeout = setTimeout(event => {VanishPopup()}, 2000)} 
+            else if (key == `69`) {patternTemp[i] = "E"; i++; CheckTick("E"); reksaiE.currentTime = 0; reksaiE.play(); clearTimeout(vanishTimeout); vanishTimeout = setTimeout(event => {VanishPopup()}, 2000)} 
             else if (key == `82`) {patternTemp[i] = "R"; i++; CheckTick("R"); clearTimeout(vanishTimeout); vanishTimeout = setTimeout(event => {VanishPopup()}, 2000)}
             console.log(patternTemp[i])
 
