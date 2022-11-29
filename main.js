@@ -1,5 +1,5 @@
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DECLARATIONS
-let body = document.querySelector("body")
+let body = document.body
 let pos, key, x, time=1, selectedChampie, wait = true, pause = false
 // add transition to every .champie_box
 document.querySelectorAll(".champie_box").forEach(champie_box => {
@@ -10,7 +10,6 @@ document.getElementsByClassName("champie_img")[2].style.transform = "scale(1.15)
 //! create new pokemon
 const reksaiChampie = new Champies("Rek'Sai", 15, 4, 2, 6, 256)
 console.log(reksaiChampie)
-
 
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~SELECTION~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //? confirm, select the middle available champie, play its select audio, manipulate the black curtains and call the Start() function

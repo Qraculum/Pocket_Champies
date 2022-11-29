@@ -10,6 +10,9 @@
 
 body {
     margin: 0;
+    overflow: hidden;
+    
+    background-color: rgb(41, 41, 41);
 }
 
 #champie_box {
@@ -176,4 +179,30 @@ body {
 
 .button:hover {
     background-color: rgb(65, 66, 66);
+}
+
+.popup {
+    position: absolute;
+    z-index: 1;
+
+    font-family: RapierZero;
+    
+    opacity: 0%;
+    text-align: center;
+}
+
+.popup > h2 {
+    margin: 0;
+
+    font-size: 30px;
+    font-weight: normal;
+    color: rgb(20, 20, 20);
+}
+
+.popup > h3 {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: normal;
+    color: rgb(240, 240, 240)
 }
