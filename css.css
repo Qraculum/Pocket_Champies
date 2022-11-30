@@ -228,3 +228,27 @@ body {
     font-weight: normal;
     color: rgb(240, 240, 240)
 }
+
+#border * {
+    background-color: rgb(15, 15, 15);
+
+    position: absolute;
+}
+
+#left, #right {
+    width: 7px;
+    height: 100vh;
+}
+
+#top, #bottom {
+    width: 100vw;
+    height: 7px;
+}
+
+#right {
+    right: 0;
+}
+
+#bottom {
+    bottom: 0;
+}

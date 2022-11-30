@@ -8,7 +8,7 @@ document.querySelectorAll(".champie_box").forEach(champie_box => {
 document.getElementsByClassName("champie_img")[2].style.transform = "scale(1.15)"  // change add scale to champie_img
 
 //! create new pokemon
-const reksaiChampie = new Champies("Rek'Sai", 15, 4, 2, 6, 256)
+const reksaiChampie = new Champies("Rek'Sai", 15, 4, 2, 6)
 console.log(reksaiChampie)
 
 //? add champie's values to the panel on the left
@@ -24,7 +24,16 @@ document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
 function Confirm() {
         // get id from centerized champie_box
         selectedChampie = document.getElementsByClassName("champie_box")[2].id
-        if (selectedChampie == "reksaiChampie") selectedChampie = reksaiChampie; /*reksaiSelect.play()*/  // declaring selectedChampie as x pokemon' object
+        if (selectedChampie == "reksaiChampie"){
+            selectedChampie = reksaiChampie;   // declaring selectedChampie as x pokemon' object
+            //reksaiSelect.play()
+
+            document.body.innerHTML = `<div id="fury_bar">
+                                            <div class="semi_bar"></div>
+                                            <div class="semi_bar"></div>
+                                            <div class="semi_bar"></div>
+                                        </div>` + document.body.innerHTML
+        } 
 
         /*
         document.querySelector("#big_black").style.zIndex = "1"  // move big_black forward
@@ -58,26 +67,27 @@ function ToggleRight() {
                 champie_box.style.removeProperty("transform")
             })
 
+            // left panel
+            if (document.getElementsByClassName("champie_box")[2].id == "reksaiChampie"){
+                document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
+                                                              health: ${reksaiChampie.health}<br>
+                                                              attack: ${reksaiChampie.attack}<br>
+                                                              defence: ${reksaiChampie.defence}<br>
+                                                              agility: ${reksaiChampie.agility}`
+            }
+            else {
+                document.getElementById("stats").innerHTML = `name: ROCK<br>
+                                                              health: 1<br>
+                                                              attack: 1<br>
+                                                              defence: 1<br>
+                                                              agility: 1<br>`
+            }
+
             // after 0.4s add transition to every box
             setTimeout(event => {
                 document.querySelectorAll(".champie_box").forEach(champie_box => {
                     champie_box.style.transition = "all 0.4s ease-out" 
                 })
-
-                if (document.getElementsByClassName("champie_box")[2].id == "reksaiChampie"){
-                    document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
-                                                                  health: ${reksaiChampie.health}<br>
-                                                                  attack: ${reksaiChampie.attack}<br>
-                                                                  defence: ${reksaiChampie.defence}<br>
-                                                                  agility: ${reksaiChampie.agility}`
-                }
-                else {
-                    document.getElementById("stats").innerHTML = `name: ROCK<br>
-                                                                  health: 1<br>
-                                                                  attack: 1<br>
-                                                                  defence: 1<br>
-                                                                  agility: 1<br>`
-                }
             }, 400)
         }, 400)
 
@@ -104,26 +114,27 @@ function ToggleLeft() {
                 champie_box.style.removeProperty("transform")
             })
 
+            // left panel
+            if (document.getElementsByClassName("champie_box")[2].id == "reksaiChampie"){
+                document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
+                                                              health: ${reksaiChampie.health}<br>
+                                                              attack: ${reksaiChampie.attack}<br>
+                                                              defence: ${reksaiChampie.defence}<br>
+                                                              agility: ${reksaiChampie.agility}`
+            }
+            else {
+                document.getElementById("stats").innerHTML = `name: ROCK<br>
+                                                              health: 1<br>
+                                                              attack: 1<br>
+                                                              defence: 1<br>
+                                                              agility: 1<br>`
+            }
+
             // after 0.4s add transition to every box
             setTimeout(event => {
                 document.querySelectorAll(".champie_box").forEach(champie_box => {
                     champie_box.style.transition = "all 0.4s ease-out" 
                 })
-
-                if (document.getElementsByClassName("champie_box")[2].id == "reksaiChampie"){
-                    document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
-                                                                  health: ${reksaiChampie.health}<br>
-                                                                  attack: ${reksaiChampie.attack}<br>
-                                                                  defence: ${reksaiChampie.defence}<br>
-                                                                  agility: ${reksaiChampie.agility}`
-                }
-                else {
-                    document.getElementById("stats").innerHTML = `name: ROCK<br>
-                                                                  health: 1<br>
-                                                                  attack: 1<br>
-                                                                  defence: 1<br>
-                                                                  agility: 1<br>`
-                }
             }, 400)
         }, 400)
 
@@ -141,7 +152,7 @@ function Start() {
     document.querySelector("#selection_background").parentNode.removeChild(document.querySelector("#selection_background")) 
 
     // create viable character in champie_box
-    document.getElementById("champie_box").innerHTML = `<img id="champie" height="${selectedChampie.height}" src="Champies/${selectedChampie.name}/Sprite_readjusted - Idle2.png">` 
+    document.getElementById("champie_box").innerHTML = `<img id="champie"  src="Champies/${selectedChampie.name}/Sprite_readjusted - Idle21.png">` 
     let champie = document.getElementById("champie")  // declaring champie's variable
     ChangePosition()  // rearrange champie's position based on his height
     

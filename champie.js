@@ -1,4 +1,6 @@
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CHAMPIE CREATOR~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+let fury = 1
+
 class Champies {
     constructor (name, health, attack, defence, agility, height){  //? adding needed properties for a character
         this.name = name
@@ -6,12 +8,12 @@ class Champies {
         this.attack = attack
         this.defence = defence
         this.agility = agility
-        this.height = height
     }
 
     IdleAnimation(idleSprite) {  //? idle animation module   
         if(!pause) {
-            champie.src = `Champies/${this.name}/Sprite_readjusted - Idle${idleSprite}.png`  // getting 
+            if (selectedChampie == reksaiChampie) champie.src = `Champies/${this.name}/Sprite_readjusted - Idle${idleSprite}${fury}.png`
+            else champie.src = `Champies/${this.name}/Sprite_readjusted - Idle${idleSprite}.png`
             idleSprite == 2 ? idleSprite=1 : idleSprite=2
             return idleSprite
         }      

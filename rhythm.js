@@ -1,7 +1,7 @@
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~RHYTHM~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let tick = 0, i = 0, patternTemp = [], idleSprite = 1, countPopup = 0, popupActive = true, 
+let tick = 0, i = 0, patternTemp = [], idleSprite = 1, countPopup = 0, popupActive = true,
     popupClass = document.getElementsByClassName("popup"),
-    patternAttack = ["E", "Q", "W", "Q"],  // patterns
+    patternAttack = ["Q", "Q", "W", "Q"],  // patterns
     patternBlock = ["E", "E", "Q", "W"]
 
 //? vanish all popups if no input
