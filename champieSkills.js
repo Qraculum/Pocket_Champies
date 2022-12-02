@@ -2,9 +2,8 @@
 //? rearrange champie's position on scene (creates margin-top to put the object on the ground)
 function ChangePosition() {
     document.querySelector("#champie_box").style.bottom = `0`
-    document.querySelector("#champie_box").style.marginBottom = `385px`
+    document.querySelector("#champie_box").style.marginBottom = `39vh`
 }
-
 
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~REK'SAI~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let xersaiFury = false, times=-1
