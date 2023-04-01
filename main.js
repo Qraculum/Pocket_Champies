@@ -2,12 +2,10 @@
 let body = document.body
 let pos, key, x, time=1, selectedChampie, wait = true, pause = false
 // add transition to every .champie_box
-document.querySelectorAll(".champie_box").forEach(champie_box => {
-    champie_box.style.transition = "all 0.4s ease-out"
-})
+document.querySelectorAll(".champie_box").forEach(champie_box => { champie_box.style.transition = "all 0.4s ease-out"})
 document.getElementsByClassName("champie_img")[2].style.transform = "scale(1.15)"  // change add scale to champie_img
 
-//! create new pokemon
+//! create new champie
 const reksaiChampie = new Champies("Rek'Sai", 15, 4, 2, 6)
 console.log(reksaiChampie)
 
@@ -16,41 +14,45 @@ document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
                                               health: ${reksaiChampie.health}<br>
                                               attack: ${reksaiChampie.attack}<br>
                                               defence: ${reksaiChampie.defence}<br>
-                                              agility: ${reksaiChampie.agility}`
+                                              speed: ${reksaiChampie.speed}`
 
 
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~SELECTION~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //? confirm, select the middle available champie, play its select audio, manipulate the black curtains and call the Start() function
 function Confirm() {
-        // get id from centerized champie_box
-        selectedChampie = document.getElementsByClassName("champie_box")[2].id
-        if (selectedChampie == "reksaiChampie"){
-            selectedChampie = reksaiChampie;   // declaring selectedChampie as x pokemon' object
-            //reksaiSelect.play()
+    enter.currentTime = 0
+    enter.play()
+    // get id from centerized champie_box
+    selectedChampie = document.getElementsByClassName("champie_box")[2].id
+    if (selectedChampie == "reksaiChampie"){
+        selectedChampie = reksaiChampie;   // declaring selectedChampie as x pokemon' object
+        //reksaiSelect.play()
 
-            document.body.innerHTML = `<div id="fury_bar">
-                                            <div class="semi_bar"></div>
-                                            <div class="semi_bar"></div>
-                                            <div class="semi_bar"></div>
-                                        </div>` + document.body.innerHTML
-        } 
+        document.body.innerHTML = `<div id="fury_bar">
+                                        <div class="semi_bar"></div>
+                                        <div class="semi_bar"></div>
+                                        <div class="semi_bar"></div>
+                                    </div>` + document.body.innerHTML
+    } 
 
-        /*
-        document.querySelector("#big_black").style.zIndex = "1"  // move big_black forward
-        document.querySelector("#big_black").style.opacity = "100%"  // change its opacity within transition
-        setTimeout(event => {
-            Start()  // call Start()
-            document.querySelector("#big_black").style.opacity = "0%"  // change its opacity within transition
-            setTimeout(event => {document.querySelector("#big_black").parentNode.removeChild(document.querySelector("#big_black")); music.play()}, 2500)  // remove the big_black wall
-        }, 2500)
-        */
-        document.querySelector("#big_black").parentNode.removeChild(document.querySelector("#big_black"))
-        //music.play()
-        Start() 
+    /*\
+    document.querySelector("#big_black").style.zIndex = "1"  // move big_black forward
+    document.querySelector("#big_black").style.opacity = "100%"  // change its opacity within transition
+    setTimeout(event => {
+        Start()  // call Start()
+        document.querySelector("#big_black").style.opacity = "0%"  // change its opacity within transition
+        setTimeout(event => {document.querySelector("#big_black").parentNode.removeChild(document.querySelector("#big_black")); music.play()}, 2500)  // remove the big_black wall
+    }, 2500)
+    */
+    document.querySelector("#big_black").parentNode.removeChild(document.querySelector("#big_black"))
+    //setTimeout(event => music.play(), 300)
+    Start() 
 }
 
 //? swipe all champies to the left
 function ToggleRight() {
+    click.currentTime = 0
+    click.play()
     if (wait) {
         // remove transform from the image inside of champie_box and add it to next in the row
         document.getElementsByClassName("champie_img")[2].style.removeProperty("transform")
@@ -73,14 +75,14 @@ function ToggleRight() {
                                                               health: ${reksaiChampie.health}<br>
                                                               attack: ${reksaiChampie.attack}<br>
                                                               defence: ${reksaiChampie.defence}<br>
-                                                              agility: ${reksaiChampie.agility}`
+                                                              speed: ${reksaiChampie.speed}`
             }
             else {
                 document.getElementById("stats").innerHTML = `name: ROCK<br>
                                                               health: 1<br>
                                                               attack: 1<br>
                                                               defence: 1<br>
-                                                              agility: 1<br>`
+                                                              speed: 1<br>`
             }
 
             // after 0.4s add transition to every box
@@ -98,6 +100,8 @@ function ToggleRight() {
 
 //? swipe all champies to the right
 function ToggleLeft() {
+    click.currentTime = 0
+    click.play()
     if (wait) {
         // remove transform from the image inside of champie_box and add it to previous in the row
         document.getElementsByClassName("champie_img")[2].style.removeProperty("transform")
@@ -120,14 +124,14 @@ function ToggleLeft() {
                                                               health: ${reksaiChampie.health}<br>
                                                               attack: ${reksaiChampie.attack}<br>
                                                               defence: ${reksaiChampie.defence}<br>
-                                                              agility: ${reksaiChampie.agility}`
+                                                              speed: ${reksaiChampie.speed}`
             }
             else {
                 document.getElementById("stats").innerHTML = `name: ROCK<br>
                                                               health: 1<br>
                                                               attack: 1<br>
                                                               defence: 1<br>
-                                                              agility: 1<br>`
+                                                              speed: 1<br>`
             }
 
             // after 0.4s add transition to every box
@@ -151,6 +155,12 @@ function Start() {
     // remove whole selection menu
     document.querySelector("#selection_background").parentNode.removeChild(document.querySelector("#selection_background")) 
 
+    // create viable character in enemy_box
+    document.getElementById("enemy_box").innerHTML += `<img id="enemy" src="Champies/Dummy - idle1.png">`
+    let enemy = document.getElementById("enemy")
+    document.querySelector("#enemy_box").style.bottom = `0`
+    document.querySelector("#enemy_box").style.marginBottom = `39vh`
+
     // create viable character in champie_box
     document.getElementById("champie_box").innerHTML = `<img id="champie"  src="Champies/${selectedChampie.name}/Sprite_readjusted - Idle21.png">` 
     let champie = document.getElementById("champie")  // declaring champie's variable
@@ -161,5 +171,10 @@ function Start() {
         champie.style.transform = "rotateY(360deg)"
         setTimeout(event = () => {champie.style.transitionDuration = "0s"; champie.style.removeProperty("transform")}, 200)
         champie.style.transitionDuration = "0.2s"
+    })
+    enemy.addEventListener("click", event => {
+        enemy.style.transform = "rotateY(360deg)"
+        setTimeout(event = () => {enemy.style.transitionDuration = "0s"; enemy.style.removeProperty("transform")}, 200)
+        enemy.style.transitionDuration = "0.2s"
     })
 }

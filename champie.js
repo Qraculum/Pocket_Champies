@@ -2,12 +2,12 @@
 let fury = 1
 
 class Champies {
-    constructor (name, health, attack, defence, agility, height){  //? adding needed properties for a character
+    constructor (name, health, attack, defence, speed){  //? adding needed properties for a character
         this.name = name
         this.health = health
         this.attack = attack
         this.defence = defence
-        this.agility = agility
+        this.speed = speed
     }
 
     IdleAnimation(idleSprite) {  //? idle animation module   

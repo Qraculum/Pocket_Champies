@@ -1,7 +1,11 @@
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~AUDIO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+//! --------------------------------------INTERFACE
+const click = new Audio; click.volume = 0.2; click.src = "Audio/button_click.mp4"
+const enter = new Audio; enter.volume = 0.3; enter.src = "Audio/enter.mp3"
+
 //! --------------------------------------MUSIC
-const music = new Audio; music.volume = 0.15; music.loop = true; music.src = "Music/Game Theme_Dettankarmen - Instrumental.mp3"
+const music = new Audio; music.volume = 0.25; music.loop = true; music.src = "Music/Game Theme_Dettankarmen - Instrumental.mp3"
 
 //! --------------------------------------REK'SAI
 const reksaiSelect = new Audio; reksaiSelect.volume = 0.2; reksaiSelect.src = "Champies/Rek'Sai/Audio/reksaiSelect.ogg"  // selection voice
