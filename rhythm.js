@@ -92,7 +92,7 @@ function CheckTick (letter) {
     } 
 }
 
-//? call it to start the whole rhythm
+//? call it to start the whole rhythm  <----------------------------------------------------------------------------------------
 function RhythmStart() {
     // for each popup give them a starting position 
     document.querySelectorAll(".popup").forEach(popup => {

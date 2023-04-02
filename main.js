@@ -1,9 +1,9 @@
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DECLARATIONS
 let body = document.body
-let pos, key, x, time=1, selectedChampie, wait = true, pause = false
+let pos, key, x, time=1, selectedChampie, wait = true, pause = false, champieBoxQuantity = document.querySelectorAll(".champie_box").length
 // add transition to every .champie_box
 document.querySelectorAll(".champie_box").forEach(champie_box => { champie_box.style.transition = "all 0.4s ease-out"})
-document.getElementsByClassName("champie_img")[2].style.transform = "scale(1.15)"  // change add scale to champie_img
+document.getElementsByClassName("champie_img")[parseInt(champieBoxQuantity/2-0.1)].style.transform = "scale(1.15)"  // change add scale to champie_img
 
 //! create new champie
 const reksaiChampie = new Champies("Rek'Sai", 15, 4, 2, 6)
@@ -16,6 +16,18 @@ document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
                                               defence: ${reksaiChampie.defence}<br>
                                               speed: ${reksaiChampie.speed}`
 
+// make lines over the champie images disappear/appear in the beginning
+let temp = 0
+document.querySelectorAll(".line").forEach(line => {
+    temp++
+    if(temp == parseInt(document.querySelectorAll(".line").length/2+1)) line.style.opacity = "100%"
+    else line.style.opacity = "0%"
+    setTimeout(event => line.style.transition = "0.4s ease-in-out", 10)
+})
+
+// make middle text over the champie's image a bit higher
+document.getElementsByClassName("champie_box")[parseInt(champieBoxQuantity/2-0.1)].getElementsByTagName("h1")[0].style.top = "-40px"
+
 
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~SELECTION~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //? confirm, select the middle available champie, play its select audio, manipulate the black curtains and call the Start() function
@@ -23,7 +35,7 @@ function Confirm() {
     enter.currentTime = 0
     enter.play()
     // get id from centerized champie_box
-    selectedChampie = document.getElementsByClassName("champie_box")[2].id
+    selectedChampie = document.getElementsByClassName("champie_box")[parseInt(champieBoxQuantity/2-0.1)].id
     if (selectedChampie == "reksaiChampie"){
         selectedChampie = reksaiChampie;   // declaring selectedChampie as x pokemon' object
         //reksaiSelect.play()
@@ -55,22 +67,28 @@ function ToggleRight() {
     click.play()
     if (wait) {
         // remove transform from the image inside of champie_box and add it to next in the row
-        document.getElementsByClassName("champie_img")[2].style.removeProperty("transform")
-        document.getElementsByClassName("champie_img")[3].style.transform = "scale(1.15)"
+        document.getElementsByClassName("champie_img")[parseInt(champieBoxQuantity/2-0.1)].style.removeProperty("transform")
+        document.getElementsByClassName("champie_img")[parseInt(champieBoxQuantity/2-0.1)+1].style.transform = "scale(1.15)"
+        // change opacity of middle and right line over the champies' images
+        document.getElementsByClassName("line")[parseInt(champieBoxQuantity/2-0.1)].style.opacity = "0%"
+        document.getElementsByClassName("line")[parseInt(champieBoxQuantity/2-0.1)+1].style.opacity = "100%"
+        // change height of middle and right champies' names over the images
+        document.getElementsByClassName("champie_box")[parseInt(champieBoxQuantity/2-0.1)].getElementsByTagName("h1")[0].style.removeProperty("top")
+        document.getElementsByClassName("champie_box")[parseInt(champieBoxQuantity/2-0.1)+1].getElementsByTagName("h1")[0].style.top = "-40px"
         // move all boxes to the left by 300px
-        for(i=0; i<5; i++) document.getElementsByClassName("champie_box")[i].style.transform = "translate(-300px, 0px)"  
+        for(i=0; i<champieBoxQuantity; i++) document.getElementsByClassName("champie_box")[i].style.transform = "translate(-300px, 0px)"  
 
         // after 0.4s 
         setTimeout(event => {
             // put the first object as the last
-            document.querySelector("#pokemon_selection_case").appendChild(document.getElementsByClassName("champie_box")[0], document.getElementsByClassName("champie_box")[4])
+            document.querySelector("#pokemon_selection_case").appendChild(document.getElementsByClassName("champie_box")[0], document.getElementsByClassName("champie_box")[champieBoxQuantity-1])
             document.querySelectorAll(".champie_box").forEach(champie_box => {  // for every champie_box remove transition and transform in style
                 champie_box.style.removeProperty("transition")
                 champie_box.style.removeProperty("transform")
             })
 
             // left panel
-            if (document.getElementsByClassName("champie_box")[2].id == "reksaiChampie"){
+            if (document.getElementsByClassName("champie_box")[parseInt(champieBoxQuantity/2-0.1)].id == "reksaiChampie"){
                 document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
                                                               health: ${reksaiChampie.health}<br>
                                                               attack: ${reksaiChampie.attack}<br>
@@ -104,22 +122,28 @@ function ToggleLeft() {
     click.play()
     if (wait) {
         // remove transform from the image inside of champie_box and add it to previous in the row
-        document.getElementsByClassName("champie_img")[2].style.removeProperty("transform")
-        document.getElementsByClassName("champie_img")[1].style.transform = "scale(1.15)"
+        document.getElementsByClassName("champie_img")[parseInt(champieBoxQuantity/2-0.1)].style.removeProperty("transform")
+        document.getElementsByClassName("champie_img")[parseInt(champieBoxQuantity/2-0.1)-1].style.transform = "scale(1.15)"
+        // change opacity of middle and right line over the champies' images
+        document.getElementsByClassName("line")[parseInt(champieBoxQuantity/2-0.1)].style.opacity = "0%"
+        document.getElementsByClassName("line")[parseInt(champieBoxQuantity/2-0.1)-1].style.opacity = "100%"
+        // change height of middle and right champies' names over the images
+        document.getElementsByClassName("champie_box")[parseInt(champieBoxQuantity/2-0.1)].getElementsByTagName("h1")[0].style.removeProperty("top")
+        document.getElementsByClassName("champie_box")[parseInt(champieBoxQuantity/2-0.1)-1].getElementsByTagName("h1")[0].style.top = "-40px"
         // move all boxes to the right by 300px
-        for(i=0; i<5; i++) document.getElementsByClassName("champie_box")[i].style.transform = "translate(300px, 0px)"
+        for(i=0; i<champieBoxQuantity; i++) document.getElementsByClassName("champie_box")[i].style.transform = "translate(300px, 0px)"
 
         // after 0.4s 
         setTimeout(event => {
             // put the last object as the first
-            document.querySelector("#pokemon_selection_case").insertBefore(document.getElementsByClassName("champie_box")[4], document.getElementsByClassName("champie_box")[0])
+            document.querySelector("#pokemon_selection_case").insertBefore(document.getElementsByClassName("champie_box")[champieBoxQuantity-1], document.getElementsByClassName("champie_box")[0])
             document.querySelectorAll(".champie_box").forEach(champie_box => {
                 champie_box.style.removeProperty("transition")
                 champie_box.style.removeProperty("transform")
             })
 
             // left panel
-            if (document.getElementsByClassName("champie_box")[2].id == "reksaiChampie"){
+            if (document.getElementsByClassName("champie_box")[parseInt(champieBoxQuantity/2-0.1)].id == "reksaiChampie"){
                 document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
                                                               health: ${reksaiChampie.health}<br>
                                                               attack: ${reksaiChampie.attack}<br>

@@ -104,11 +104,11 @@ body {
 }
 
 #pokemon_selection_case {
-    width: 1500px;
+    width: 900px;
     height: 400px;
 
     position: relative;
-    right: 300px;
+    right: 00px;
 }
 
 .champie_box {
@@ -135,7 +135,7 @@ body {
     margin-left: auto;
     margin-right: auto;
 
-    transition: all 0.5s ease-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .champie_box > h1 {
@@ -147,6 +147,8 @@ body {
     font-family: RapierZero;
     font-weight: normal;
     letter-spacing: 2px;
+
+    transition: 0.4s ease-in-out;
 }
 
 .line {
