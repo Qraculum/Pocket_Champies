@@ -5,31 +5,6 @@ function ChangePosition() {
     document.querySelector("#champie_box").style.marginBottom = `39vh`
 }
 
-//TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DUMMY~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-function DummyAttacked() {
-    let popupEnemy = document.getElementById("enemy_popup")
-    
-    //images for being attacked, idle
-    enemy.src = "Champies/Dummy - attacked.png"
-    setTimeout(event => enemy.src = "Champies/Dummy - idle1.png", 300)
-
-    //popup for text display when attacked
-    popupEnemy.style.transition = "all 0.5s ease-out, scale 0.2s ease-in-out"
-    popupEnemy.style.transform += `rotate(${Math.floor(Math.random()*56)-25}deg)`
-    setTimeout(event => popupEnemy.style.transform += `scale(1.2)`, 200)
-    popupEnemy.style.opacity = "1"
-    popupEnemy.querySelector("h2").innerHTML = "FUQ"
-
-    setTimeout(event => {
-        popupEnemy.style.opacity = "0%"
-        popupEnemy.style.removeProperty("transform")
-
-        setTimeout(event => popupEnemy.querySelector("h2").innerHTML = "", 500) // after 0.5s reset h2 and h3 in every popup to empty
-    }, 400)
-  }
-
 
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~REK'SAI~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let xersaiFury = false, times=-1
@@ -53,7 +28,7 @@ reksaiChampie.Attack = function () {
                         champie.src = "Champies/Rek'Sai/Sprite_readjusted - Prepare1.png"
                         setTimeout(event => {
                             champie.src = "Champies/Rek'Sai/Sprite - LieDown.png"
-                            DummyAttacked()
+                            dummyEnemy.Injure()
                         }, 50)
                     }, 700)
                 }, 250)
@@ -92,7 +67,7 @@ reksaiChampie.Attack = function () {
                 else setTimeout(event = () => {  // after x time resets the champie's position
                     champie.style.removeProperty("left")
                     champie.style.removeProperty("bottom")
-                    champie.src = `Champies/${selectedChampie.name}/Sprite_readjusted - Idle${idleSprite}1.png`
+                    champie.src = `Champies/${selectedChampie.name}/${selectedChampie.name} - Idle${idleSprite}1.png`
 
                     if(times == 2){
                         times = -1
@@ -119,7 +94,7 @@ reksaiChampie.Attack = function () {
                         champie.src = "Champies/Rek'Sai/Sprite - FuryAttack6.png"
                         setTimeout(event => {
                             champie.src = "Champies/Rek'Sai/Sprite - FuryAttack7.png"
-                            DummyAttacked()
+                            dummyEnemy.Injure()
                             setTimeout(event => {champie.src = "Champies/Rek'Sai/Sprite - FuryAttack6_NoFury.png"}, 450)
                         }, 700)
                     }, 100)
@@ -140,5 +115,12 @@ reksaiChampie.Attack = function () {
 
 //! --------------------------------------BLOCK
 reksaiChampie.Block = function () {  
-    
+    pause = true
+
+    setTimeout(event => {
+        champie.src = "Champies/Rek'Sai/Sprite - FuryAttack1.png"
+        setTimeout(event => {
+            champie.src = "Champies/Rek'Sai/Sprite - FuryAttack2.png"
+        }, 250)
+    }, 300)
 }

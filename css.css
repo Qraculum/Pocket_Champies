@@ -15,11 +15,6 @@ body {
     background-color: rgb(41, 41, 41);
 }
 
-#enemy_box {
-    position: absolute;
-    margin-left: 60vw;
-}
-
 #champie_box {
     position: absolute;
     margin-left: 10vw;
@@ -208,23 +203,6 @@ body {
 
 .button:hover {
     background-color: rgb(65, 66, 66);
-}
-
-#enemy_popup {
-    margin: 0;
-
-    position: absolute;
-    left: 250px;
-    z-index: 1;
-
-    font-family: RapierZero;
-    font-size: 30px;
-    font-weight: normal;
-    color: rgb(20, 20, 20);
-    text-align: center;
-
-    opacity: 0%;
-    
 }
 
 .popup {

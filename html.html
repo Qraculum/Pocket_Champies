@@ -7,7 +7,9 @@
 
     <link rel="stylesheet" href="css.css">
     <link rel="stylesheet" href="champie_additions.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="enemy_additions.css">
+
+    <title> Pocket Champies </title>
 </head>
 <body>
 
@@ -17,12 +19,19 @@
     <div class="popup"><h2> </h2> <h3> </h3></div>
     
     <div style="position: absolute;">
-        <div id="champie_box"></div>
+        <div id="champie_box">
+            <img id="champie">
+        </div>
         <div id="enemy_box">
             <div id="enemy_popup"><h2> </h2></div>
+            <img id="enemy">
         </div>
         <div id="background"></div>
         <div id="floor"></div>
+    </div>
+
+    <div id="enemy_popups" style="position: absolute">
+
     </div>
 
 
@@ -66,7 +75,9 @@
     <script src="rhythm.js"></script>
     <script src="champie.js"></script>
     <script src="main.js"></script>
+    <script src="panelMovement.js"></script>
     <script src="champieSkills.js"></script>
+    <script src="enemy.js"></script>
 
 </body>
 </html>

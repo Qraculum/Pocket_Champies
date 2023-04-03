@@ -1,0 +1,43 @@
+@font-face {
+    font-family: PilotCommand;
+    src: url("Font/PilotCommandSpaced.otf");
+}
+
+@font-face {
+    font-family: RapierZero;
+    src: url("Font/RapierZero-325M.ttf");
+}
+
+#enemy_box {
+    position: absolute;
+    margin-left: 60vw;
+}
+
+#enemy_popup {
+    margin: 0;
+
+    position: absolute;
+    left: 250px;
+    z-index: 1;
+
+    font-family: RapierZero;
+    font-size: 30px;
+    font-weight: normal;
+    color: rgb(20, 20, 20);
+    text-align: center;
+
+    opacity: 0%;
+    
+}
+
+.attack_popup {
+    position: absolute;
+
+    width: 50px;
+    height: 50px;
+
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    font-family: RapierZero;
+}

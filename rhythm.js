@@ -1,8 +1,8 @@
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~RHYTHM~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let tick = 0, i = 0, patternTemp = [], idleSprite = 1, countPopup = 0, popupActive = true,
+let tick = 0, i = 0, patternTemp = [], idleSprite = 2, countPopup = 0, popupActive = true,
     popupClass = document.getElementsByClassName("popup"),
     patternAttack = ["Q", "Q", "W"],  // patterns
-    patternBlock = ["E", "E", "Q"],
+    patternBlock = ["E", "W", "E"],
     patternMove = ["W", "W", "W"]
 
 //? vanish all popups if no input
@@ -127,8 +127,9 @@ function RhythmStart() {
             if(patternTemp.length == 3) {
                 clearTimeout(vanishTimeout)
                 for(j=0; j <= 2; j++){
-                    if(patternTemp[j] != patternAttack[j]) {patternTemp = []; i = 0; break}  // if any of the values from the table are not the same, clear the table, reset i and break the loop
-                    else if(j == 2) {patternTemp = []; i = 0; selectedChampie.Attack()}
+                    if(patternTemp[j] != patternAttack[j] && patternTemp[j] != patternBlock[j]) {patternTemp = []; i = 0; break}  // if any of the values from the table are not the same, clear the table, reset i and break the loop
+                    else if(j == 2 && patternTemp[0] == "Q") {patternTemp = []; i = 0; selectedChampie.Attack()}
+                    else if(j == 2 && patternTemp[0] == "E") {patternTemp = []; i = 0; selectedChampie.Block()}
                 }
             }
         }
