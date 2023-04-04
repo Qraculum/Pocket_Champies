@@ -62,11 +62,10 @@ function Play(text, index){  //? plays through the whole text of letters and dot
 
         default:
             setTimeout(event =>{ 
-                console.log(text[index])
-
-                attackPopupsList.push(new AttackPopup(text[index]))             // creates an object from class AttackPopup and pushes the object into list attackPopupsList
+                attackPopupsList.push(new AttackPopup(countAttackPopups+1, text[index]))             // creates an object from class AttackPopup and pushes the object into list attackPopupsList
                 attackPopupsList[attackPopupsList.length-1].Begin(text[index])  // calls method Begin() of the previously created object
 
+                countAttackPopups++
                 return Play(text, index+1)
             }, 150)
             break
@@ -76,12 +75,14 @@ function Play(text, index){  //? plays through the whole text of letters and dot
 
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ATTACK POPUPS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 class AttackPopup {         //! creates an attack popup and manipulates it
-    constructor (letter){
+    constructor (id, letter){
+        this.id = id
         this.letter = letter
     }
 
-    Begin(letter){
+    Begin (letter){
         let element = document.createElement("div")
+        element.id = `attack_popup${this.id}`
         element.className = "attack_popup"
         element.innerHTML = letter
 
@@ -90,22 +91,22 @@ class AttackPopup {         //! creates an attack popup and manipulates it
         let count = 0
         document.querySelectorAll(".attack_popup").forEach(element => count++)
 
-        this.Move(count-1)
+        this.Move()
     }
 
-    Move(index){
-        let left = 70, attackPopup = document.getElementsByClassName("attack_popup")
-        attackPopup[index].style.marginLeft = `${left}vw`
-        attackPopup[index].style.bottom = "0px"
-        attackPopup[index].style.marginBottom = "-42vh"
+    Move (){
+        let left = 70, element = document.getElementById(`attack_popup${this.id}`)
+        element.style.marginLeft = `${left}vw`
+        element.style.bottom = "0px"
+        element.style.marginBottom = "-44vh"
 
         let move = setInterval(event => {
             left--
-            attackPopup[index].style.marginLeft = `${left}vw`
+            element.style.marginLeft = `${left}vw`
 
-            if(left == 40) {
-                attackPopup[index].style.opacity = "0%"
+            if(left == 34) {
                 clearInterval(move)
+                element.remove()
             }
         }, 20)
     }
@@ -114,4 +115,5 @@ class AttackPopup {         //! creates an attack popup and manipulates it
 
 //! --------------------------------------DUMMY 
 const dummyEnemy = new Enemy("Dummy")
-const dummyAttack = new EnemyAttacks("QQ...E.W..QEW\n")
+//const dummyAttack = new EnemyAttacks("QQ...E.W..QEW\n")
+const dummyAttack = new EnemyAttacks("Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..\n")

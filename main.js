@@ -1,6 +1,6 @@
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DECLARATIONS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let body = document.body
-let pos, key, x, time=1, selectedChampie, wait = true, pause = false, champieBoxQuantity = document.querySelectorAll(".champie_box").length
+let pos, key, x, time=1, selectedChampie, wait = true, pause = false, defend = false, champieBoxQuantity = document.querySelectorAll(".champie_box").length, countAttackPopups = 0
 // add transition to every .champie_box
 document.querySelectorAll(".champie_box").forEach(champie_box => { champie_box.style.transition = "all 0.4s ease-out"})
 document.getElementsByClassName("champie_img")[parseInt(champieBoxQuantity/2-0.1)].style.transform = "scale(1.15)"  // change add scale to champie_img
@@ -92,5 +92,5 @@ function Start() {
         enemy.style.transitionDuration = "0.2s"
     })
 
-    setTimeout(event => Play(dummyAttack.content, 0), 500)
+    setTimeout(event => Play(dummyAttack.content, 0), 2500)
 }

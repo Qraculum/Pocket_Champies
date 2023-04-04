@@ -21,3 +21,40 @@
 
     background-color: rgb(44, 36, 36);
 }
+
+/*! MAIN */
+#hitbox {
+    width: 30px;
+    height: 30px;
+
+    z-index: 1;
+    position: absolute;
+
+    background-color: transparent;
+}
+
+.defend_popup {
+    position: absolute;
+
+    z-index: 1;
+
+    font-family: RapierZero;
+    text-align: center;
+    opacity: 0%;
+}
+
+.defend_popup > h2 {
+    margin: 0;
+
+    font-size: 30px;
+    font-weight: normal;
+    color: rgb(20, 20, 20);
+}
+
+.defend_popup > h3 {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: normal;
+    color: rgb(240, 240, 240)
+}

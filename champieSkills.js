@@ -11,6 +11,7 @@ let xersaiFury = false, times=-1
 
 //! --------------------------------------ATTACK
 reksaiChampie.Attack = function () {  
+    defend = false
     if(!xersaiFury){
         reksaiAttack.play()  // play the rek'sai's attack audio
         pause = true
@@ -121,6 +122,20 @@ reksaiChampie.Block = function () {
         champie.src = "Champies/Rek'Sai/Sprite - FuryAttack1.png"
         setTimeout(event => {
             champie.src = "Champies/Rek'Sai/Sprite - FuryAttack2.png"
+            setTimeout(event => {
+                defend = true
+
+                let element = document.createElement("div")
+                element.id = "hitbox"
+                element.style.marginLeft = "40vw"
+                element.style.bottom = "57vh"
+                element.innerHTML = `<img id="hitbox_img" src="Interface/Hitbox.png" style="transform: rotate(45deg)" style="translate: all 0.1s ease-in-out">`
+
+                document.getElementById("container").appendChild(element)
+
+                hitboxTop = element.offsetTop
+                hitboxLeft = element.offsetLeft
+            }, 100)
         }, 250)
     }, 300)
 }
