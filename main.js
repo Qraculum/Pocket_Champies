@@ -40,11 +40,11 @@ function Confirm() {
         selectedChampie = reksaiChampie;   // declaring selectedChampie as x pokemon' object
         //reksaiSelect.play()
 
-        document.body.innerHTML = `<div id="fury_bar">
-                                        <div class="semi_bar"></div>
-                                        <div class="semi_bar"></div>
-                                        <div class="semi_bar"></div>
-                                    </div>` + document.body.innerHTML
+        document.getElementById("container").innerHTML = `<div id="fury_bar">
+                                                            <div class="semi_bar"></div>
+                                                            <div class="semi_bar"></div>
+                                                            <div class="semi_bar"></div>
+                                                          </div>` + document.getElementById("container").innerHTML    
     } 
 
     /*\
@@ -56,7 +56,9 @@ function Confirm() {
         setTimeout(event => {document.querySelector("#big_black").parentNode.removeChild(document.querySelector("#big_black")); music.play()}, 2500)  // remove the big_black wall
     }, 2500)
     */
-    document.querySelector("#big_black").parentNode.removeChild(document.querySelector("#big_black"))
+    document.getElementById("big_black").style.opacity = "0%"
+    document.getElementById("big_black").style.zIndex = "-1"
+    document.getElementById("big_black").style.transition = "all 0.2s ease-in-out"
     //setTimeout(event => music.play(), 300)
     Start() 
 }

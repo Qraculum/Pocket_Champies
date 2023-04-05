@@ -1,6 +1,6 @@
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~RHYTHM~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let tick = 0, i = 0, patternTemp = [], idleSprite = 2, countPopup = 0, popupActive = true, countDefendPopups = 0, listDefendPopups = [], hitboxLeft = 0, hitboxTop = 0,
-    letterTop = 0, letterLeft = 0, distanceY = 0, distanceX = 0,
+    letterTop = 0, letterLeft = 0, distanceY = 0, distanceX = 0, special = false,
     popupClass = document.getElementsByClassName("popup"),
     patternAttack = ["Q", "Q", "W"],  // patterns
     patternBlock = ["E", "W", "E"],
@@ -95,7 +95,9 @@ function CheckTick (letter) {
 
 //? function to add another popup during defence
 function DefendPopupAdd(letter) {
-    rank = "Unknown"
+    rank = "Missed"
+    hitbox.currentTime = 0
+    hitbox.play()
 
     if (document.getElementsByClassName("attack_popup")[0] != null){    // checks if the popup exist, to not create an error
         letterTop = document.getElementsByClassName("attack_popup")[0].offsetTop    // calculates distances between objects `hitbox` and `attack_popup`
@@ -104,14 +106,17 @@ function DefendPopupAdd(letter) {
         distanceX = letterLeft - hitboxLeft
 
         // based on distances give user his rank - [DISTANCE_Y ; DISTANCE_Y-30; DISTANCE_X+30 ; DISTANCE_X]
-        if (distanceY < 35 && distanceY > -65 && distanceX < 65 && distanceX > -25){
+        if (letter != document.getElementsByClassName("attack_popup")[0].innerHTML){
+            rank = "Wrong Letter!"
+        }
+        else if (distanceY < 35 && distanceY > -65 && distanceX < 85 && distanceX > -35){
             rank = "PERFECT!!!"
 
             document.getElementById("hitbox_img").style.transition = "all 0.1s ease-in-out" 
             document.getElementById("hitbox_img").style.transform = "scale(2) rotate(45deg)"
-            setTimeout(event => document.getElementById("hitbox_img").style.transform = "scale(1) rotate(45deg)", 150)
+            setTimeout(event => document.getElementById("hitbox_img").style.transform = "scale(1.3) rotate(45deg)", 150)
         }
-        else if (distanceY < 55 && distanceY > -85 && distanceX < 95 && distanceX > -45){
+        else if (distanceY < 55 && distanceY > -85 && distanceX < 115 && distanceX > -60){
             rank = "Good!"
         }
         else rank = "Okay"
@@ -182,8 +187,9 @@ function RhythmStart() {
                     countDefendPopups = 0; listDefendPopups = []
                     selectedChampie.DefendStop(); 
                 }
+                else if (key == '83') reksaiChampie.Special()
             }
-            else {              // check if the key pressed is Q -> W -> E - if it is, then call function AttackPopupAdd()
+            else if (!special) {              // check if the key pressed is Q -> W -> E - if it is, then call function AttackPopupAdd()
                 if (key == `81`) AttackPopupAdd("Q")
                 else if (key == `87`) AttackPopupAdd("W")
                 else if (key == `69`) AttackPopupAdd("E") 

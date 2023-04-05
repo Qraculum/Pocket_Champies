@@ -1,10 +1,28 @@
 /*! REK'SAI */
+#burrow {
+    position: absolute;
+    top: 4vh;
+    left: -0.5vw;
+}
+
+#burrow_duplicate {
+    position: absolute;
+    top: 4vh;
+    left: 33vw;
+}
+
+#slice {
+    position: absolute;
+    left: 52vw;
+    bottom: 15vh;
+}
+
 #fury_bar {
     width: 600px;
     height: 30px;
 
-    margin-left: auto;
-    margin-right: auto;
+    position: absolute;
+    left: 32.5vw;
 
     background-color: rgb(22, 15, 17);
 }
@@ -22,7 +40,8 @@
     background-color: rgb(44, 36, 36);
 }
 
-/*! MAIN */
+
+/*! DEFENCE */
 #hitbox {
     width: 30px;
     height: 30px;
@@ -33,6 +52,15 @@
     background-color: transparent;
 }
 
+#poise_panel {
+    position: absolute;
+
+    top: 465px;
+    left: 775px;
+}
+
+
+/*! MAIN */
 .defend_popup {
     position: absolute;
 

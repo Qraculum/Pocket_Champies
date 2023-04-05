@@ -43,32 +43,35 @@ class EnemyAttacks {            //! create a sequence of attacks for certain ene
 
 let attackPopupsList = []
 function Play(text, index){  //? plays through the whole text of letters and dots to set a proper attack towards our champie
-    switch (text[index]){
-        // if the character is ".", set a timeout to log the char and replay the function
-        case ".":                                   // for value = "."
-            setTimeout(event =>{                    // set a timeout of 500ms to
-                console.log(".")                    // log "."
-                return Play(text, index+1)          // and replay the function Play()
-            }, 250)
-            break                                   // then break the switch
-
-        case "\n":
-            setTimeout(event =>{ 
-                console.log("END")
-                console.log(attackPopupsList)
-                //return this.Play(text, index+1)
-            }, 1000)
-            break
-
-        default:
-            setTimeout(event =>{ 
-                attackPopupsList.push(new AttackPopup(countAttackPopups+1, text[index]))             // creates an object from class AttackPopup and pushes the object into list attackPopupsList
-                attackPopupsList[attackPopupsList.length-1].Begin(text[index])  // calls method Begin() of the previously created object
-
-                countAttackPopups++
-                return Play(text, index+1)
-            }, 150)
-            break
+    if (special) setTimeout(event => {return Play(text, index)}, 400)
+    else {
+        switch (text[index]){
+            // if the character is ".", set a timeout to log the char and replay the function
+            case ".":                                   // for value = "."
+                setTimeout(event =>{                    // set a timeout of 500ms to
+                    console.log(".")                    // log "."
+                    return Play(text, index+1)          // and replay the function Play()
+                }, 250)
+                break                                   // then break the switch
+    
+            case "\n":
+                setTimeout(event =>{ 
+                    console.log("END")
+                    console.log(attackPopupsList)
+                    //return this.Play(text, index+1)
+                }, 1000)
+                break
+    
+            default:
+                setTimeout(event =>{ 
+                    attackPopupsList.push(new AttackPopup(countAttackPopups+1, text[index]))             // creates an object from class AttackPopup and pushes the object into list attackPopupsList
+                    attackPopupsList[attackPopupsList.length-1].Begin(text[index])  // calls method Begin() of the previously created object
+    
+                    countAttackPopups++
+                    return Play(text, index+1)
+                }, 150)
+                break
+        }
     }
 }
 
