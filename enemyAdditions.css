@@ -21,9 +21,10 @@
     z-index: 1;
 
     font-family: RapierZero;
+    font-weight: 100;
     font-size: 30px;
     font-weight: normal;
-    color: rgb(20, 20, 20);
+    color: rgb(226, 226, 226);
     text-align: center;
 
     opacity: 0%;

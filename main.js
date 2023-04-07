@@ -1,6 +1,7 @@
 //TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DECLARATIONS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let body = document.body
-let pos, key, x, time=1, selectedChampie, wait = true, pause = false, defend = false, champieBoxQuantity = document.querySelectorAll(".champie_box").length, countAttackPopups = 0
+let pos, key, x, time=1, selectedChampie, wait = true, pause = false, defend = false, champieBoxQuantity = document.querySelectorAll(".champie_box").length, countAttackPopups = 0,
+    p = 735, q = 376
 // add transition to every .champie_box
 document.querySelectorAll(".champie_box").forEach(champie_box => { champie_box.style.transition = "all 0.4s ease-out"})
 document.getElementsByClassName("champie_img")[parseInt(champieBoxQuantity/2-0.1)].style.transform = "scale(1.15)"  // change add scale to champie_img
@@ -75,7 +76,7 @@ function Start() {
     dummyEnemy.Introduce()
     let enemy = document.getElementById("enemy")
     document.querySelector("#enemy_box").style.bottom = `0`
-    document.querySelector("#enemy_box").style.marginBottom = `39vh`
+    document.querySelector("#enemy_box").style.marginBottom = `30vh`
 
     // create viable character in champie_box
     reksaiChampie.Introduce()

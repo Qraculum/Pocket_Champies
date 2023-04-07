@@ -98,25 +98,53 @@ class AttackPopup {         //! creates an attack popup and manipulates it
     }
 
     Move (){
-        let left = 70, element = document.getElementById(`attack_popup${this.id}`)
-        element.style.marginLeft = `${left}vw`
-        element.style.bottom = "0px"
-        element.style.marginBottom = "-44vh"
+        let left = 1260, element = document.getElementById(`attack_popup${this.id}`), valX, valY
+
+        // random Y parameter between 225 and 525
+        let y = parseInt(Math.random()*251)+320
+        element.style.top = `${y}px`
+
+        // X parameter based on sinus of y
+        let x = parseInt(Math.sin(y/95.6 - 2.35)*35)
+        element.style.marginLeft = `${left-x}px`
+        x = left-x
+
+        // speed values the overall incremenation of x towards left to adjust the speed
+        //let speed = (Math.random()*26)+180
+        let speed = 200
+        let pathX = (x-p)/speed
+        //let pathY = (y-q)/speed
+        //let pathXCON = pathX
+        //let pathYCON = pathY 
+        //let pathCount = 0
+
+        y = y-445
 
         let move = setInterval(event => {
-            left--
-            element.style.marginLeft = `${left}vw`
+            valX = element.offsetLeft - document.getElementById("hitbox").offsetLeft
+            valY = element.offsetTop - document.getElementById("hitbox").offsetTop
 
-            if(left == 34) {
+            element.style.marginLeft = `${element.offsetLeft - pathX}px`
+            //element.style.top = `${Math.log(valX)/Math.log(10)*y+375}px`
+            element.style.top = `${Math.sin(valX/300.49)*y*2.465+445}px`
+            //element.style.top = `${valX**(1/2)/y**2+375}px`
+
+            //pathX += pathXCON
+            //pathY += pathYCON
+            //pathCount++
+            
+
+            if(element.offsetLeft+85 <= document.getElementById("hitbox").offsetLeft) {
                 clearInterval(move)
                 element.remove()
             }
-        }, 20)
+        }, 6)
     }
 }
 
 
 //! --------------------------------------DUMMY 
 const dummyEnemy = new Enemy("Dummy")
-//const dummyAttack = new EnemyAttacks("QQ...E.W..QEW\n")
-const dummyAttack = new EnemyAttacks("Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..\n")
+const dummyAttack = new EnemyAttacks("QQ...E.W..Q.E.W.E.E..W.Q.Q..W....W.E.Q..W.W.W..Q.E.E..W.E.Q....W\n")
+//const dummyAttack = new EnemyAttacks("QQ...E.W..QEWEE.W.Q.Q..W....WEQ.WWW.QEE.WEQ....W\n")
+//const dummyAttack = new EnemyAttacks("Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..Q..\n")

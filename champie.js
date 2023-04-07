@@ -42,8 +42,8 @@ class Champies {        //! creates a champie!
         hitboxLeft = 0
         hitboxTop = 0
 
-        document.getElementById("hitbox").remove()
-        document.getElementById("poise_panel").remove()
+        document.getElementById("poise_panel").style.opacity = "0%"
+        document.getElementById("hitbox").style.opacity = "0%"
 
         setTimeout(event => {
             champie.src = "Champies/Rek'Sai/Sprite - FuryAttack2.png"

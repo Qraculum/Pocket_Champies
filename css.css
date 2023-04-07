@@ -32,13 +32,13 @@ body {
 
 #background {
     width: 100vw;
-    height: 60vh;
+    height: 65vh;
     background-color: rgb(79, 79, 87);
 }
 
 #floor {
     width: 100vw;
-    height: 40vh;
+    height: 35vh;
     background-color: rgb(44, 44, 51);
 }
 

@@ -2,7 +2,7 @@
 //? rearrange champie's position on scene (creates margin-top to put the object on the ground)
 function ChangePosition() {
     document.querySelector("#champie_box").style.bottom = `0`
-    document.querySelector("#champie_box").style.marginBottom = `39vh`
+    document.querySelector("#champie_box").style.marginBottom = `30vh`
 }
 
 
@@ -125,24 +125,11 @@ reksaiChampie.Block = function () {
             setTimeout(event => {
                 defend = true
 
-                let element = document.createElement("div")
-                element.id = "poise_panel"
-                element.innerHTML = `<img id="poise_meter" src="Interface/Poise_Meter.png">`
+                document.getElementById("poise_panel").style.opacity = "100%"
+                document.getElementById("hitbox").style.opacity = "100%"
 
-                document.getElementById("container").appendChild(element)
-
-                element = document.createElement("div")
-                element.id = "hitbox"
-                element.style.marginLeft = "40vw"
-                element.style.bottom = "57vh"
-                element.innerHTML = `<img id="hitbox_img" src="Interface/Hitbox.png" style="transform: rotate(45deg) scale(1.3)" style="translate: all 0.1s ease-in-out">`
-
-                document.getElementById("container").appendChild(element)
-
-                console.log(document.getElementById("hitbox").offsetTop)
-                console.log(document.getElementById("hitbox").offsetLeft)
-                hitboxTop = element.offsetTop
-                hitboxLeft = element.offsetLeft
+                hitboxTop = document.getElementById("hitbox").offsetTop
+                hitboxLeft = document.getElementById("hitbox").offsetLeft
             }, 100)
         }, 250)
     }, 300)
@@ -153,7 +140,8 @@ reksaiChampie.Special = function () {
     pause = true; defend = false; special = true
 
     setTimeout(event => {
-        document.getElementById("hitbox").remove()
+        document.getElementById("poise_panel").style.opacity = "0%"
+        document.getElementById("hitbox").style.opacity = "0%"
         champie.src = "Champies/Rek'Sai/Sprite - FuryAttack1.png"
         setTimeout(event => {
             champie.src = "Champies/Rek'Sai/Sprite - SpecialAttack1.png"
@@ -206,7 +194,6 @@ reksaiChampie.Special = function () {
                                     }, 50)
                                 }, 600)
                             }
-                            console.log(x)
                             champie.style.bottom = `${Math.log10(x)*90}px`
                             document.getElementById("enemy").style.bottom = `${Math.log10(x)*90}px`
                             x++

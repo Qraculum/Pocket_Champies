@@ -112,6 +112,8 @@ function DefendPopupAdd(letter) {
         else if (distanceY < 35 && distanceY > -65 && distanceX < 85 && distanceX > -35){
             rank = "PERFECT!!!"
 
+            document.getElementsByClassName("attack_popup")[0].remove()
+
             document.getElementById("hitbox_img").style.transition = "all 0.1s ease-in-out" 
             document.getElementById("hitbox_img").style.transform = "scale(2) rotate(45deg)"
             setTimeout(event => document.getElementById("hitbox_img").style.transform = "scale(1.3) rotate(45deg)", 150)
