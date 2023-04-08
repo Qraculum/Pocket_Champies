@@ -11,7 +11,9 @@ class Champies {        //! creates a champie!
     }
 
     Introduce(){    //? adds a source for an image for a champie to recreate within the game
-        document.getElementById("champie").src = `Champies/${this.name}/${this.name} - idle11.png`
+        if (selectedChampie == reksaiChampie) document.getElementById("champie").src = `Champies/${this.name}/${this.name} - idle11.png`
+        else document.getElementById("champie").src = `Champies/${this.name}/${this.name} - idle1.png`
+        
     }
 
     IdleAnimation(idleSprite) {  //? idle animation module   
@@ -30,13 +32,6 @@ class Champies {        //! creates a champie!
         else return idleSprite
     }
 
-    IdleDefendAnimation(idleSprite) {  //? idle defend animation module   
-        if(defend) {
-            null
-        }      
-        else return idleSprite
-    }
-
     DefendStop() {  //? stop the defend mechanism and remove `hitbox`
         defend = false
         hitboxLeft = 0
@@ -45,13 +40,18 @@ class Champies {        //! creates a champie!
         document.getElementById("poise_panel").style.opacity = "0%"
         document.getElementById("hitbox").style.opacity = "0%"
 
-        setTimeout(event => {
-            champie.src = "Champies/Rek'Sai/Sprite - FuryAttack2.png"
+        if (selectedChampie == reksaiChampie){
             setTimeout(event => {
-                champie.src = "Champies/Rek'Sai/Sprite - FuryAttack1.png"
-                setTimeout(event =>  pause = false, 250)
-            }, 250)
-        }, 300)
+                champie.src = "Champies/Rek'Sai/Sprite - FuryAttack2.png"
+                setTimeout(event => {
+                    champie.src = "Champies/Rek'Sai/Sprite - FuryAttack1.png"
+                    setTimeout(event =>  pause = false, 250)
+                }, 250)
+            }, 300)
+        }
+        else if (selectedChampie == mordekaiserChampie){
+            null
+        }
     }
 }
 

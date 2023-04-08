@@ -139,16 +139,30 @@ function AttackPopupAdd(letter) {
 
     switch (letter){  // depending on the acquired letter - play an appropiate audio
         case "Q":
-            reksaiQ.currentTime = 0
-            reksaiQ.play()
+            if (selectedChampie == reksaiChampie){
+                reksaiQ.currentTime = 0
+                reksaiQ.play()
+            }
+            else if (selectedChampie == mordekaiserChampie){
+                mordekaiserQ.currentTime = 0
+                mordekaiserQ.play()
+            }
             break
         case "W":
-            reksaiW.currentTime = 0
-            reksaiW.play()
+            if (selectedChampie == reksaiChampie){
+                reksaiW.currentTime = 0
+                reksaiW.play()
+            }
+            else if (selectedChampie == mordekaiserChampie){
+                mordekaiserW.currentTime = 0
+                mordekaiserW.play()
+            }
             break
         case "E":
-            reksaiE.currentTime = 0
-            reksaiE.play()
+            if (selectedChampie == reksaiChampie){
+                reksaiE.currentTime = 0
+                reksaiE.play()
+            }
             break
     }
     

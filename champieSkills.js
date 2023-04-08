@@ -206,3 +206,56 @@ reksaiChampie.Special = function () {
         }, 200)
     }, 200)
 }
+
+
+//TODO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~MORDEKAISER~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//! --------------------------------------ATTACK
+mordekaiserChampie.Attack = function () {
+    pause = true
+
+    setTimeout(event => {
+        switch (parseInt((Math.random()*3)+1)){
+            case 1:
+                mordekaiserAttack1.currentTime = 0
+                mordekaiserAttack1.play()
+                break
+            case 2:
+                mordekaiserAttack2.currentTime = 0
+                mordekaiserAttack2.play()
+                break
+            case 3:
+                mordekaiserAttack3.currentTime = 0
+                mordekaiserAttack3.play()
+                break
+        }
+    }, 300)
+
+
+    document.getElementById("container").innerHTML += `<img id="mace" src="Champies/Mordekaiser/Mace.png">`
+        setTimeout(event => {
+            champie.src = "Champies/Mordekaiser/Mordekaiser - Attack2.png"
+
+            setTimeout(event => {
+                champie.src = "Champies/Mordekaiser/Mordekaiser - Attack3.png"
+                setTimeout(event => {
+                    champie.src = "Champies/Mordekaiser/Mordekaiser - Attack4.png"
+                    setTimeout(event => {
+                        champie.src = "Champies/Mordekaiser/Mordekaiser - Attack5.png"
+
+                        document.getElementById("mace").style.top = "37vh"
+                        document.getElementById("mace").style.left = "580px"
+                        document.getElementById("mace").style.transform = "rotate(120deg)"
+                        setTimeout(event => {
+                            mordekaiserQ.currentTime = 0
+                            mordekaiserQ.play()
+                        }, 100)
+                        setTimeout(event => {
+                            pause = false
+                            document.getElementById("mace")
+                        }, 800)
+                    }, 500)
+                }, 300)
+            }, 100)
+        }, 200)
+}

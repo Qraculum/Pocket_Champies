@@ -8,7 +8,9 @@ document.getElementsByClassName("champie_img")[parseInt(champieBoxQuantity/2-0.1
 
 //! create new champie
 const reksaiChampie = new Champies("Rek'Sai", 15, 4, 2, 6)
+const mordekaiserChampie = new Champies("Mordekaiser", 25, 5, 5, 5)
 console.log(reksaiChampie)
+console.log(mordekaiserChampie)
 
 //? add champie's values to the panel on the left
 document.getElementById("stats").innerHTML = `name: ${reksaiChampie.name}<br>
@@ -47,6 +49,9 @@ function Confirm() {
                                                             <div class="semi_bar"></div>
                                                           </div>` + document.getElementById("container").innerHTML    
     } 
+    else if (selectedChampie == "mordekaiserChampie"){
+        selectedChampie = mordekaiserChampie
+    }
 
     /*\
     document.querySelector("#big_black").style.zIndex = "1"  // move big_black forward
@@ -79,7 +84,7 @@ function Start() {
     document.querySelector("#enemy_box").style.marginBottom = `30vh`
 
     // create viable character in champie_box
-    reksaiChampie.Introduce()
+    selectedChampie.Introduce()
     let champie = document.getElementById("champie")  // declaring champie's variable
     ChangePosition()  // rearrange champie's position based on his height
     

@@ -20,3 +20,12 @@ const reksaiE = new Audio; reksaiE.volume = 0.45; reksaiE.src = "Champies/Rek'Sa
 const reksaiBurrow = new Audio; reksaiBurrow.volume = 0.3; reksaiBurrow.src = "Champies/Rek'Sai/Audio/reksaiBurrow.ogg"
 const reksaiUlt = new Audio; reksaiUlt.volume = 0.4; reksaiUlt.src = "Champies/Rek'Sai/Audio/reksaiUltimate.ogg"
 const reksaiSlice = new Audio; reksaiSlice.volume = 0.35; reksaiSlice.src = "Champies/Rek'Sai/Audio/reksaiSlice.ogg"
+
+//! --------------------------------------MORDEKAISER
+const mordekaiserAttack1 = new Audio; mordekaiserAttack1.volume = 0.45; mordekaiserAttack1.src = "Champies/Mordekaiser/Audio/mordekaiserAttack1.ogg"
+const mordekaiserAttack2 = new Audio; mordekaiserAttack2.volume = 0.45; mordekaiserAttack2.src = "Champies/Mordekaiser/Audio/mordekaiserAttack2.ogg"
+const mordekaiserAttack3 = new Audio; mordekaiserAttack3.volume = 0.45; mordekaiserAttack3.src = "Champies/Mordekaiser/Audio/mordekaiserAttack3.ogg"
+
+const mordekaiserQ = new Audio; mordekaiserQ.volume = 0.45; mordekaiserQ.src = "Champies/Mordekaiser/Audio/mordekaiserQ.mp4"
+const mordekaiserW = new Audio; mordekaiserW.volume = 0.6; mordekaiserW.src = "Champies/Mordekaiser/Audio/mordekaiserW.mp4"
+//const mordekaiserE = new Audio; mordekaiserE.volume = 0.45; mordekaiserE.src = "Champies/Mordekaiser/Audio/mordekaiserE.mp4"
